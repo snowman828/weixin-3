@@ -34,3 +34,5 @@ Route::post('hello',function(){
     return "Hello Laravel[POST]!";
 });
 
+Route::resource('post','PostController');
+
