@@ -10,14 +10,26 @@
     class PostController extends Controller
     {
         /**
-         * 显示文章列表.
-         *
-         * @return Response
-         */
-        public function index()
-        {
-            //
-        }
+* 显示文章列表.
+*
+* @return Response
+*/
+public function index()
+{
+    $posts = Cache::get('posts',[]);
+    if(!$posts)
+        exit('Nothing');
+
+    $html = '<ul>';
+
+    foreach ($posts as $key=>$post) {
+        $html .= '<li><a href='.route('post.show',['post'=>$key]).'>'.$post['title'].'</li>';
+    }
+
+    $html .= '</ul>';
+
+    return $html;
+}
 
         /**
 * 创建新文章表单页面
@@ -90,36 +102,72 @@ DETAIL;
 }
 
         /**
-         * 显示编辑指定文章的表单页面
-         *
-         * @param int $id
-         * @return Response
-         */
-        public function edit($id)
-        {
-            //
-        }
+* 显示编辑指定文章的表单页面
+*
+* @param int $id
+* @return Response
+*/
+public function edit($id)
+{
+    $posts = Cache::get('posts',[]);
+    if(!$posts || !$posts[$id])
+        exit('Nothing Found！');
+    $post = $posts[$id];
 
-        /**
-         * 在存储器中更新指定文章
-         *
-         * @param Request $request
-         * @param int $id
-         * @return Response
-         */
-        public function update(Request $request, $id)
-        {
-            //
-        }
+    $postUrl = route('post.update',['post'=>$id]);
+    $csrf_field = csrf_field();
+    $html = <<<UPDATE
+        <form action="$postUrl" method="POST">
+            $csrf_field
+            <input type="hidden" name="_method" value="PUT"/>
+            <input type="text" name="title" value="{$post['title']}"><br/><br/>
+            <textarea name="content" cols="50" rows="5">{$post['content']}</textarea><br/><br/>
+            <input type="submit" value="提交"/>
+        </form>
+UPDATE;
+    return $html;
 
-        /**
-         * 从存储器中移除指定文章
-         *
-         * @param int $id
-         * @return Response
-         */
-        public function destroy($id)
-        {
-            //
-        }
+}
+
+/**
+* 在存储器中更新指定文章
+*
+* @param Request $request
+* @param int $id
+* @return Response
+*/
+public function update(Request $request, $id)
+{
+    $posts = Cache::get('posts',[]);
+    if(!$posts || !$posts[$id])
+        exit('Nothing Found！');
+
+    $title = $request->input('title');
+    $content = $request->input('content');
+
+    $posts[$id]['title'] = trim($title);
+    $posts[$id]['content'] = trim($content);
+
+    Cache::put('posts',$posts,60);
+    return redirect()->route('post.show',['post'=>Cache::get('post_id')]);
+}
+
+       /**
+* 从存储器中移除指定文章
+*
+* @param int $id
+* @return Response
+*/
+public function destroy($id)
+{
+    $posts = Cache::get('posts',[]);
+    if(!$posts || !$posts[$id])
+        exit('Nothing Deleted！');
+
+    unset($posts[$id]);
+    Cache::decrement('post_id',1);
+
+    return redirect()->route('post.index');
+
+}
     }
