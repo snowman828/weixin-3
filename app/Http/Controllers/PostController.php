@@ -65,15 +65,29 @@ public function store(Request $request)
 }
 
         /**
-         * 显示指定文章
-         *
-         * @param int $id
-         * @return Response
-         */
-        public function show($id)
-        {
-            //
-        }
+* 显示指定文章
+*
+* @param int $id
+* @return Response
+*/
+public function show($id)
+{
+    $posts = Cache::get('posts',[]);
+    if(!$posts || !$posts[$id])
+        exit('Nothing Found！');
+    $post = $posts[$id];
+
+    $editUrl = route('post.edit',['post'=>$id]);
+    $html = <<<DETAIL
+        <h3>{$post['title']}</h3>
+        <p>{$post['content']}</p>
+        <p>
+            <a href="{$editUrl}">编辑</a>
+        </p>
+DETAIL;
+
+    return $html;
+}
 
         /**
          * 显示编辑指定文章的表单页面
