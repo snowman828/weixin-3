@@ -31,11 +31,7 @@ FORM;
 });
 
 Route::post('hello',function(){
-    return "Hello Laravel[POST]!";
+    return view('hello/hello');
 });
 
 Route::resource('post','PostController');
-
-Route::get('cache', function () {
-    return cache('key');
-});
