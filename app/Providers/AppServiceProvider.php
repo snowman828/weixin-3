@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('ViewServiceProvider', function ($app) {
-            return new ViewServiceProvider($app->make('Cache'));
+            return new ViewServiceProvider($app->make('ViewServiceProvider'));
         });
     }
 

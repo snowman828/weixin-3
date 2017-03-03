@@ -7,6 +7,7 @@
     <body>
         <h1>Hello Laravel</h1>
         <h1>{{WEBSITE_DOMAIN}}</h1>
+        @youhua($testStr)
         <div>Hello, {{ $testStr }}. @datetime($testStr)</div>
         <a href="http://www.baidu.com">百度</a>
     </body>
