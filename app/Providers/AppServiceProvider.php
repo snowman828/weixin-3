@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo strtotime($expression); ?>";
         });
 
-        $this->app->bind('HelpSpot\API', function ($app) {
+        $this->app->bind('ViewServiceProvider', function ($app) {
             return new HelpSpot\API($app->make('HttpClient'));
         });
     }
