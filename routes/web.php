@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('foo', function () {
-    return 'Hello World';
-});
-
 Route::get('testPost',function(){
     $csrf_token = csrf_token();
     $form = <<<FORM
