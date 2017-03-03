@@ -15,7 +15,9 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('datetime', function($expression) {
-            return "<?php echo $expression->format('m/d/Y H:i'); ?>";
+            $date = new DateTime($expression);
+            //echo $date->format('Y-m-d H:i:s');
+            return "<?php echo $date->format('m/d/Y H:i'); ?>";
         });
     }
 
