@@ -17,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('datetime', function($expression) {
             return "<?php echo strtotime($expression); ?>";
         });
+
+        $this->app->bind('HelpSpot\API', function ($app) {
+            return new HelpSpot\API($app->make('HttpClient'));
+        });
     }
 
     /**
