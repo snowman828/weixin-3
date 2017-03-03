@@ -6,6 +6,7 @@
     </head>
     <body>
         <h1>Hello Laravel</h1>
+        <h1>{{WEBSITE_DOMAIN}}</h1>
         <a href="http://www.baidu.com">百度</a>
     </body>
 </html>
