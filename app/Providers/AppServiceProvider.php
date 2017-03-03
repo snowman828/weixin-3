@@ -18,9 +18,6 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo strtotime($expression); ?>";
         });
 
-        $this->app->bind('ViewServiceProvider', function ($app) {
-            return new ViewServiceProvider($app->make('ViewServiceProvider'));
-        });
     }
 
     /**
