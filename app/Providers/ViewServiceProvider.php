@@ -15,7 +15,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('youhua', function($expression) {
-            return "<?php echo '<h1>123123</h1>'); ?>";
+            return "<?php echo '<h1>123123</h1>'; ?>";
         });
     }
 
