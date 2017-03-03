@@ -27,7 +27,7 @@ FORM;
 });
 
 Route::post('hello',function(){
-    return view('hello/hello');
+    return view('hello.hello', ['var' => '1488529451']);
 });
 
 Route::resource('post','PostController');
