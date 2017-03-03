@@ -36,3 +36,6 @@ Route::post('hello',function(){
 
 Route::resource('post','PostController');
 
+Route::get('cache', function () {
+    return cache('key');
+});
