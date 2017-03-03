@@ -28,7 +28,9 @@ FORM;
 
 
 Route::post('hello',function(){
-    $api = resolve('HelpSpot\API');
+    //Class HelpSpot\API does not exist
+    //Class 'App\Providers\HelpSpot\API' not found
+    $api = resolve('ViewServiceProvider');
     var_dump($api);
     return view('hello.hello', ['testStr' => strval('2017-03-03 23:50:50')]);
 });
