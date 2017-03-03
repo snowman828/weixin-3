@@ -27,7 +27,7 @@ FORM;
 });
 
 Route::post('hello',function(){
-    return view('hello.hello', ['var' => strval('1488529451')]);
+    return view('hello.hello', ['testStr' => strval('2017-03-03 23:50:50')]);
 });
 
 Route::resource('post','PostController');
