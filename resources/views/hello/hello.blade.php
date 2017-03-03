@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Hello Laravel</h1>
-        <h1>{{WEBSITE_DOMAIN}}</h1>
+        <h1><?php echo with($var)->format('m/d/Y H:i'); ?></h1>
         <a href="http://www.baidu.com">百度</a>
     </body>
 </html>
