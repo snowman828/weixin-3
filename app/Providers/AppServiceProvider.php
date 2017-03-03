@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('ViewServiceProvider', function ($app) {
-            return new HelpSpot\API($app->make('HttpClient'));
+            return new ViewServiceProvider($app->make('HttpClient'));
         });
     }
 
