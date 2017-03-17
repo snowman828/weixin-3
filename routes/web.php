@@ -15,24 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('testPost',function(){
-    $csrf_token = csrf_token();
-    $form = <<<FORM
-        <form action="/hello" method="POST">
-            <input type="hidden" name="_token" value="{$csrf_token}">
-            <input type="submit" value="Test"/>
-        </form>
-FORM;
-    return $form;
-});
+//Route::get('testPost',function(){
+//    $csrf_token = csrf_token();
+//    $form = <<<FORM
+//        <form action="/hello" method="POST">
+//           <input type="hidden" name="_token" value="{$csrf_token}">
+//            <input type="submit" value="Test"/>
+//        </form>
+//FORM;
+    //return $form;
+//});
 
 
-Route::post('hello',function(){
+//Route::post('hello',function(){
     //Class HelpSpot\API does not exist
     //Class 'App\Providers\HelpSpot\API' not found
     //$api = resolve('ViewServiceProvider');
     //var_dump($api);
-    return view('hello.hello', ['testStr' => strval('2017-03-03 23:50:50')]);
-});
+    //return view('hello.hello', ['testStr' => strval('2017-03-03 23:50:50')]);
+//});
 
-Route::resource('post','PostController');
+//Route::resource('post','PostController');
+Route::resource('admin','AdminController');
