@@ -18,4 +18,8 @@ class AdminController extends Controller
     public function show(){
         return view('admin.login');
     }
+
+    public function test(){
+        return view('admin.login');
+    }
 }
