@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//后台
+Route::group(['namespace'=>'Admin'],function(){
+    Route::controllers([
+        '/'=>'AdminController@index',
+        'login'=>'AdminController@login',
+    ]);
+});
+
 //Route::get('testPost',function(){
 //    $csrf_token = csrf_token();
 //    $form = <<<FORM
@@ -36,7 +45,7 @@ Route::get('/', function () {
 //});
 
 //Route::resource('post','PostController');
-Route::resource('admin','AdminController');
+//Route::resource('admin','AdminController');
 
 //Route::get('login',function(){
 //    return view('admin.login');

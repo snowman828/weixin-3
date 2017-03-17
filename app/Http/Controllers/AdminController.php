@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cache;
 use Route;
+use View;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -15,9 +16,9 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function show(){
-        //return view('admin.login');
-    }
+    //public function show(){
+    //    return view('admin.login');
+    //}
 
     public function login(){
         return view('admin.login');
