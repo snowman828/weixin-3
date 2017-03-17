@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 //后台
-Route::group(['namespace'=>'Admin'],function(){
+Route::group(function(){
     Route::controllers([
         'index'=>'AdminController@index',
         'login'=>'AdminController@login',
