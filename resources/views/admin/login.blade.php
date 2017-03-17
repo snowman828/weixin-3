@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>众长销享微信管理平台</title>
+        <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="{{BOOTSTRAP}}js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="{{BOOTSTRAP}}css/bootstrap.min.css" />
     </head>
