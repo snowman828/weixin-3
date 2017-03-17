@@ -19,7 +19,7 @@ Route::get('/', function () {
 //后台
 Route::group(['namespace'=>'Admin'],function(){
     Route::controllers([
-        '/'=>'AdminController@index',
+        'index'=>'AdminController@index',
         'login'=>'AdminController@login',
     ]);
 });
