@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>基本结构</title>
+        <script type="text/javascript" src="{{BOOTSTRAP}}js/bootstrap.min.js">
     </head>
     <body>
         <h1>Hello Laravel</h1>
