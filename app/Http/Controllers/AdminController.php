@@ -11,11 +11,8 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     public function index(){
-        Route::get('login', 'AdminController@login');
+        return redirect()->route('login');
         //return view(admin.login);
     }
 
-    public function login(){
-        return view('admin.login');
-    }
 }

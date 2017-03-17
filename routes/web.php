@@ -37,3 +37,7 @@ Route::get('/', function () {
 
 //Route::resource('post','PostController');
 Route::resource('admin','AdminController');
+
+Route::post('login',function(){
+    return view('admin.login');
+});
