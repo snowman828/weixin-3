@@ -16,7 +16,7 @@ class AdminController extends Controller
     }
 
     public function show(){
-        return view('admin.login');
+        //return view('admin.login');
     }
 
     public function login(){
