@@ -19,7 +19,7 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function test(){
+    public function login(){
         return view('admin.login');
     }
 }
