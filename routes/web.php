@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 //后台
-Route::any('/login',['uses'=>'App\AdminController@login']);
+Route::any('/login',['uses'=>'AdminController@login']);
 
 //Route::get('testPost',function(){
 //    $csrf_token = csrf_token();
