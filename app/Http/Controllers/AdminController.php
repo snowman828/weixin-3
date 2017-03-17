@@ -11,8 +11,11 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     public function index(){
-        return redirect()->route('login');
+        return redirect()->route('admin.show');
         //return view(admin.login);
     }
 
+    public function show(){
+        return view('admin.login');
+    }
 }

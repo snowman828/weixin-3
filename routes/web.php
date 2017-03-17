@@ -38,6 +38,6 @@ Route::get('/', function () {
 //Route::resource('post','PostController');
 Route::resource('admin','AdminController');
 
-Route::post('login',function(){
+Route::get('login',function(){
     return view('admin.login');
 });
