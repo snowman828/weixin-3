@@ -17,12 +17,7 @@ Route::get('/', function () {
 
 
 //后台
-Route::group([],function(){
-    Route::controllers([
-        'index'=>'AdminController@index',
-        'login'=>'AdminController@login',
-    ]);
-});
+Route::any('/login',['uses'=>'App\AdminController@login']);
 
 //Route::get('testPost',function(){
 //    $csrf_token = csrf_token();
